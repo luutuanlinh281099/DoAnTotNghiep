@@ -28,7 +28,9 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Bãi xe</th>
-                                <th scope="col">Sô lượng</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Số lượng</th>
                                 <th scope="col">Quản lí</th>
                             </tr>
                         </thead>
@@ -37,6 +39,8 @@
                             <tr>
                                 <td>{{ $Item->id }}</td>
                                 <td>{{ $Item->name }}</td>
+                                <td>{{ $Item->addr }}</td>
+                                <td><img src="{{$Item->image}}" width="200px" height="200px"></td>
                                 <td>{{ $Item->qty }}</td>
                                 <td>
                                     <a href="{{ route('park.edit', ['id' => $Item->id]) }}" class="btn btn-default">Chỉnh sửa</a>

@@ -9,4 +9,7 @@
 @endsection
 
 @section('content')
+@if(Auth::user()->role_id == 1)
+@include('partials.statistic')
+@endif
 @endsection

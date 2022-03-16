@@ -1,10 +1,11 @@
 <?php
 
+use App\Brand;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParksTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,12 @@ class CreateParksTable extends Migration
      */
     public function up()
     {
-        Schema::create('parks', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('qty');
+            $table->string('text');
+            $table->integer('user_id');
+            $table->integer('brand_id');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateParksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parks');
+        Schema::dropIfExists('members');
     }
 }

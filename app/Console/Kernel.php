@@ -22,9 +22,11 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+    
+    // kết nối đến command để chạy Delete Transaction
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('delete:cron')->withoutOverlapping()->everyMinute();
     }
 
     /**
@@ -34,8 +36,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
-
+        $this->load(__DIR__ . '/Commands');
         require base_path('routes/console.php');
     }
 }

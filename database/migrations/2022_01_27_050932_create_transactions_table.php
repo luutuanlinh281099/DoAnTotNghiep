@@ -16,12 +16,13 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('brand_id');
             $table->integer('park_id');
             $table->string('image_in');
             $table->string('text_in');
             $table->string('image_out');
             $table->string('text_out');
+            $table->string('price');
             $table->timestamps();
         });
     }

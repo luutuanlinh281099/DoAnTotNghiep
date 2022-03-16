@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,6 +10,15 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    protected $guarded = [];
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+    public function member()
+    {
+        return $this->hasMany(Member::class, 'user_id');
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id',
     ];
 
     /**

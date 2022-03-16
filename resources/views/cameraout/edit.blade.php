@@ -28,7 +28,7 @@
                             <label>Loại xe</label>
                             <select class="form-control select2_init" name="brand_id">
                                 @foreach($brands as $Item)
-                                <option value="{{ $Item->id }}" selected>{{ $Item->name }}</option>
+                                <option value="{{ $Item->id }}" {{ $transaction->brand_id == $Item->id ? 'selected' : '' }} >{{ $Item->name }}</option>
                                 @endforeach
                             </select>
                         </div>

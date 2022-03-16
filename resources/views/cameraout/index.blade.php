@@ -20,7 +20,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('cameraout.add') }}" class="btn btn-success float-right m-2"> Chụp ảnh</a>
+                    <a href="{{ route('cameraout.add') }}" class="btn btn-success float-right m-2"> Thêm ảnh</a>
+                    <a href="{{ route('cameraout.take') }}" class="btn btn-warning float-right m-2"> Chụp ảnh</a>
                 </div>
                 <div class="col-md-12">
                     <table class="table">
@@ -29,7 +30,7 @@
                                 <th scope="col">Lượt</th>
                                 <th scope="col">Hình ảnh vào</th>
                                 <th scope="col">Biển số vào</th>
-                                <th scope="col">Thời gian vào</th> 
+                                <th scope="col">Thời gian vào</th>
                                 <th scope="col">Hình ảnh ra</th>
                                 <th scope="col">Biển số ra</th>
                                 <th scope="col">Thời gian ra</th>
@@ -49,7 +50,7 @@
                                 <td>{{ $Item->text_out }}</td>
                                 <td>{{ $Item->updated_at }}</td>
                                 <td>{{ $Item->brand->name }}</td>
-                                <td>{{ $Item->brand->price }}</td>
+                                <td>{{ number_format($Item->price) }}</td>
                                 <td>
                                     <a href="{{ route('cameraout.edit', ['id' => $Item->id]) }}" class="btn btn-default">Chỉnh sửa</a>
                                 </td>

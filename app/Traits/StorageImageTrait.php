@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 
 trait StorageImageTrait
 {
+    // hàm lưu ảnh vào bộ nhớ storage
     public function storageTraitUpload($request, $fieldName, $foderName)
     {
         if ($request->hasFile($fieldName)) {

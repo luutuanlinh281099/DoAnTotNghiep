@@ -23,8 +23,17 @@
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nhập loại xe" value="{{ $park->name }}">
                         </div>
                         <div class="form-group">
+                            <label>Ảnh đại diện</label>
+                            <input type="file" class="form-control-file" name="image_park" value="{{ $park->image }}">
+                            <img class="feature_image" style="height: 200px; width: 200px" src="{{ $park->image }}" alt="">
+                        </div>
+                        <div class="form-group">
                             <label>Số lượng ô</label>
                             <input type="text" class="form-control @error('qty') is-invalid @enderror" name="qty" placeholder="Nhập giá tiền" value="{{ $park->qty }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" class="form-control @error('addr') is-invalid @enderror" name="addr" placeholder="Nhập đại chỉ" value="{{ $park->addr }}">
                         </div>
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Xác Nhận</button>

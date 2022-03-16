@@ -6,9 +6,15 @@
             <div class="image">
                 <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
+            @if(Auth::user()->role_id == 1)
             <div class="info">
-                <a href="{{ route('admin.home') }}" class="d-block">Trang chủ</a>
+                <a href="{{ route('auth.home') }}" class="d-block">ADMIN</a>
             </div>
+            @elseif(Auth::user()->role_id == 2)
+            <div class="info">
+                <a href="{{ route('auth.home') }}" class="d-block">SECURITY</a>
+            </div>
+            @endif
         </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -21,7 +27,7 @@
                         <p>
                             Camera
                             <i class="right fas fa-angle-left"></i>
-                            <span class="badge badge-info right">2</span>
+                            <span class="badge badge-info right">3</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -37,16 +43,23 @@
                                 <p>Đầu ra</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('camerain.clean') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quét hệ thống</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <br>
+                @if(Auth::user()->role_id == 1)
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Quản lí
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">4</span>
+                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -63,9 +76,27 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                            <a href="{{ route('user.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Người dùng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('member.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vé tháng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('role.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vai trò</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('newpaper.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tin tức</p>
                             </a>
                         </li>
                     </ul>
@@ -77,24 +108,31 @@
                         <p>
                             Thống kê
                             <i class="right fas fa-angle-left"></i>
-                            <span class="badge badge-info right">2</span>
+                            <span class="badge badge-info right">3</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{ route('statistic.date') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Doanh thu</p>
+                                <p>Theo ngày</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ route('statistic.park') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Số lượng</p>
+                                <p>Bãi xe</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('statistic.list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Khách hàng</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                @endif
                 <br>
                 <br>
                 <br>

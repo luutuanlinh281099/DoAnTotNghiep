@@ -25,8 +25,16 @@
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nhập bãi xe" value="{{ old('name') }}">
                         </div>
                         <div class="form-group">
+                            <label>Ảnh chụp</label>
+                            <input type="file" class="form-control-file" name="image_park">
+                        </div>
+                        <div class="form-group">
                             <label>Số lượng ô</label>
                             <input type="text" class="form-control @error('qty') is-invalid @enderror" name="qty" placeholder="Nhập số lượng" value="{{ old('qty') }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" class="form-control @error('addr') is-invalid @enderror" name="addr" placeholder="Nhập địa chỉ" value="{{ old('addr') }}">
                         </div>
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Xác Nhận</button>
